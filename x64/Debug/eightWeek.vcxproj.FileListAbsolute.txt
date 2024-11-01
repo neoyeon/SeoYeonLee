@@ -1,0 +1,2 @@
+D:\2학년 2학기\게임 제작\eightWeek\x64\Debug\eightWeek.exe
+D:\2학년 2학기\게임제작 git\eightWeek\x64\Debug\eightWeek.exe
