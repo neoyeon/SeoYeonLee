@@ -1,10 +1,1 @@
-﻿  tenthWeek_gwaje.c
-D:\2024 이서연\2학기\게임제작\tenthWeek_gwaje\tenthWeek_gwaje.c(21,37): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\2024 이서연\2학기\게임제작\tenthWeek_gwaje\tenthWeek_gwaje.c(31,19): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\2024 이서연\2학기\게임제작\tenthWeek_gwaje\tenthWeek_gwaje.c(32,19): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\2024 이서연\2학기\게임제작\tenthWeek_gwaje\tenthWeek_gwaje.c(33,19): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\2024 이서연\2학기\게임제작\tenthWeek_gwaje\tenthWeek_gwaje.c(34,19): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\2024 이서연\2학기\게임제작\tenthWeek_gwaje\tenthWeek_gwaje.c(30,33): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\2024 이서연\2학기\게임제작\tenthWeek_gwaje\tenthWeek_gwaje.c(75,15): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\2024 이서연\2학기\게임제작\tenthWeek_gwaje\tenthWeek_gwaje.c(76,15): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  tenthWeek_gwaje.vcxproj -> D:\2024 이서연\2학기\게임제작\tenthWeek_gwaje\x64\Debug\tenthWeek_gwaje.exe
+﻿LINK : fatal error LNK1104: 'C:\Users\송귀선\Desktop\게임제작_개인과제\SeoYeonLee\tenthWeek_gwaje\x64\Debug\tenthWeek_gwaje.exe' 파일을 열 수 없습니다.
