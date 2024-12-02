@@ -81,12 +81,105 @@ void DrawLine(float x1, float y1, float x2, float y2, char o, char* screenBuffer
     }
 }
 
+/*
+// 태양 화면 그리기 함수
+void drawSun(char* screenBuffer, float angle) {
+
+    Vector3 sun[3] = { // 3개의 값을 가진 배열 (태양 삼각형 모양)
+        { 40.0f, 10.0f, 1.0f }, // 위 꼭짓점
+        { 36.0f, 15.0f, 1.0f }, // 왼쪽 꼭짓점
+        { 44.0f, 15.0f, 1.0f }, // 오른쪽 꼭짓점
+    };
+
+    // 회전 중심 (40, 12)
+    float centerX = 40.0f;
+    float centerY = 12.0f;
+
+    // 회전 적용
+    Matrix3x3 sunRotation = rotation_matrix(angle);
+    Matrix3x3 sunScale = scale_matrix(1.0f, 1.0f); // Y축 비율을 줄여줌
+
+    for (int i = 0; i < 3; i++) {
+        // 회전 중심을 원점으로 이동
+        Vector3 sunTranslated = { sun[i].x - centerX, sun[i].y - centerY, sun[i].z };
+
+        // 회전 적용
+        sunTranslated = multiply_matrix_vector(sunRotation, sunTranslated);
+
+        // 스케일 적용 (회전 후에)
+        sunTranslated = multiply_matrix_vector(sunScale, sunTranslated);
+
+        // 회전 후 원래 위치로 되돌림
+        sun[i].x = sunTranslated.x + centerX;
+        sun[i].y = sunTranslated.y + centerY;
+    }
+
+    // sun 배열의 각 점을 이용해서 직선 그리기
+    for (int i = 0; i < 3; i++) {
+        int x1 = (int)sun[i].x;   // x 좌표를 int로 변환
+        int y1 = (int)sun[i].y;   // y 좌표를 int로 변환
+        int x2 = (int)sun[(i + 1) % 3].x;  // 다음 점의 x 좌표
+        int y2 = (int)sun[(i + 1) % 3].y;  // 다음 점의 y 좌표
+
+        DrawLine(x1, y1, x2, y2, 'S', screenBuffer);  // 변환된 좌표로 직선을 그린다
+    }
+
+    // 각 행에 대해 'S' 사이를 채우기
+    for (int y = 0; y < HEIGHT; y++) {
+        int firstHash = -1;
+        for (int x = 0; x < WIDTH * 2; x++) {
+            if (screenBuffer[y * (WIDTH + 1) + x] == 'S') {
+                if (firstHash == -1) {
+                    firstHash = x;
+                }
+                else {
+                    // 'S' 사이에 있는 영역을 채움
+                    for (int fillX = firstHash + 1; fillX < x; fillX++) {
+                        screenBuffer[y * (WIDTH * 2 + 1) + fillX] = 'S';
+                    }
+                    firstHash = x; // 'S'의 마지막 위치로 업데이트
+                }
+            }
+        }
+    }
+
+}
+*/
+
+void tri(char* screenBuffer) {
+    Vector3 sun[3] = { // 3개의 값을 가진 배열 (태양 삼각형 모양)
+        { 20.0f, 10.0f, 1.0f }, // 위 꼭짓점
+        { 12.0f, 20.0f, 1.0f }, // 왼쪽 꼭짓점
+        { 28.0f, 20.0f, 1.0f }, // 오른쪽 꼭짓점
+    };
+
+
+    // sun 배열의 각 점을 이용해서 직선 그리기
+    for (int i = 0; i < 3; i++) {
+        int x1 = (int)sun[i].x;   // x 좌표를 int로 변환
+        int y1 = (int)sun[i].y;   // y 좌표를 int로 변환
+        int x2 = (int)sun[(i + 1) % 3].x;  // 다음 점의 x 좌표
+        int y2 = (int)sun[(i + 1) % 3].y;  // 다음 점의 y 좌표
+
+        DrawLine(x1, y1, x2, y2, 'S', screenBuffer);  // 변환된 좌표로 직선을 그린다
+    }
+
+    // 위 꼭짓점에 "++" 출력
+    int topX = (int)sun[0].x; // 위 꼭짓점 x 좌표
+    int topY = (int)sun[0].y; // 위 꼭짓점 y 좌표
+    if (topX >= 0 && topX < WIDTH && topY >= 0 && topY < HEIGHT) {
+        screenBuffer[topY * (WIDTH * 2 + 1) + topX * 2] = '+';       // 첫 번째 '+'
+        screenBuffer[topY * (WIDTH * 2 + 1) + topX * 2 + 1] = '+';   // 두 번째 '+'
+
+    }
+}
+
 
 // 화면 업데이트 함수
 void Update(char* screenBuffer) {
     ClearScreen(screenBuffer);
 
-    DrawLine(0, 0, 40, 24, 'C', screenBuffer);
+    tri(screenBuffer);
 }
 
 int main() {
